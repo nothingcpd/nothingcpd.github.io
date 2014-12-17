@@ -320,7 +320,7 @@ hexo n == hexo <span class="built_in">new</span>
 </blockquote>
 <p><strong>2. 配置</strong></p>
 <blockquote>
-<p> 修改hexo根目录下：<br>   <strong>_config.yml ： theme: yilia</strong></p>
+<p> 修改hexo根目录下_config.yml ：<br>   <strong>theme: yilia</strong></p>
 </blockquote>
 <p><strong>3. 更新</strong></p>
 <blockquote>
@@ -342,9 +342,31 @@ git pull
 </code></pre><p>   最后在浏览器中输入： <em>nothingcpd.github.com</em>  ps：nothingcpd换成你自己的repo名字，查看效果</p>
 </blockquote>
 <h1 id="第六节：如何发表文章">第六节：如何发表文章</h1>
+<p>好了，blog搭好了，主题也配置好了，我想发表一篇文章，怎么做呢？</p>
+<blockquote>
+<p><strong>step1：输入 <em>hexo new “my first post”</em></strong><br>  ps:引号可以不加，最好不加，此时 查看<strong>source/_posts/</strong>下面会产生<strong>post.md</strong>的文件，此文件需要用markdown语言编辑，后面会有一篇专门介绍markdown语法的blog<br>      以后每次运行上面的命令都会产生文件，会产生post1-1.md，post-2.md等依次增加</p>
+<h2 id="step2:_在H:\hexo\source_posts中打开这个文件（打开方式用“记事本”即可）,_然后将下面内容_拷贝到里面"><strong>step2: 在H:\hexo\source_posts中打开这个文件（打开方式用“记事本”即可）,   然后将下面内容 拷贝到里面</strong></h2>
+<pre><code><span class="code">     layout: post</span>
+<span class="code">     title: "我的博客情缘"</span>
+<span class="code">     date: 2014-12-17 13:15</span>
+<span class="code">     comments: true</span>
+<span class="code">     tags: </span>
+<span class="code">        - 随笔</span>
+<span class="code">        - 心情</span>
+<span class="header">        - 个人
+---</span>
+</code></pre><p><strong>step3: 输入 <em>hexo server</em></strong><br>  访问localhost:4000预览效果。（退出server用Ctrl+c）</p>
+<p><strong>step4: 输入 <em>hexo deploy</em></strong><br>  同步到github。访问网站看看效果。nothingcpd.github.io(nothingcpd换成你自己的repo)</p>
+</blockquote>
+<p>现在为止，我们已经搭建起博客，进行一些基本配置，设置了主题，并学会了怎么发表文章。<br>如果只是想利用github的page功能来作为托管，后面的内容不需要看来了，只需关注下篇博客，<a href="http://chenpindian.com/2014/12/17/post-3/" target="_blank" rel="external">《Markdown,让你的思绪在博客中飞扬》</a>,<strong>学习如何写博客即可</strong></p>
+<blockquote>
+<p>   <strong>但是，有些筒子想绑定自己的域名，那下面的内容是很有必要学习的，会帮助你有一个属于自己域名的个人博客</strong></p>
+</blockquote>
 <h1 id="第七节：如何绑定自己的域名">第七节：如何绑定自己的域名</h1>
 <h1 id="第八节：最终效果图">第八节：最终效果图</h1>
+<p>1.<a href="http://chenpindian.com" target="_blank" rel="external">本人博客</a><br>2.<a href="http://litten.github.io/" target="_blank" rel="external">http://litten.github.io/</a></p>
 <h1 id="第九节：参考链接">第九节：参考链接</h1>
+<p>1.<a href="https://github.com/hexojs/hexo" target="_blank" rel="external">https://github.com/hexojs/hexo</a><br>2.<a href="http://zipperary.com/2013/05/28/hexo-guide-2/" target="_blank" rel="external">http://zipperary.com/2013/05/28/hexo-guide-2/</a><br>3.<a href="http://chenpindian.com/" target="_blank" rel="external">http://chenpindian.com/</a><br>4.<a href="http://litten.github.io/2014/08/31/hexo-theme-yilia/" target="_blank" rel="external">http://litten.github.io/2014/08/31/hexo-theme-yilia/</a></p>
 <h1 id="第十节：总结">第十节：总结</h1>
 
       
@@ -358,11 +380,11 @@ git pull
     
 <nav id="article-nav">
   
-    <a href="/2014/12/17/post-1/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2014/12/17/post-3/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">&lt;</strong>
       <div class="article-nav-title">
         
-          我的博客情缘
+          Markdown,让你的思绪在博客中飞扬
         
       </div>
     </a>
