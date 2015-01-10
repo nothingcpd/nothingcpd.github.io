@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Google-Java编程规范 | 陈品殿的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="目录
+
+前言 
+源文件基础
+源文件结构 
+格式 
+命名约定 
+编程实践 
+Javadoc 
+后记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google-Java编程规范">
+<meta property="og:url" content="http://chenpindian.com/2015/01/10/post-8/">
+<meta property="og:site_name" content="陈品殿的博客">
+<meta property="og:description" content="目录
+
+前言 
+源文件基础
+源文件结构 
+格式 
+命名约定 
+编程实践 
+Javadoc 
+后记">
+<meta property="og:image" content="https://nothingcpd.github.io/img/google1.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Google-Java编程规范">
+<meta name="twitter:description" content="目录
+
+前言 
+源文件基础
+源文件结构 
+格式 
+命名约定 
+编程实践 
+Javadoc 
+后记">
+
+  
+  
+    <link rel="alternative" href="/atom.xml" title="陈品殿的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+
+  <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+  
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?2f5f382e58589604b07ae89a7ee65a63";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<div class="profilepic">
+			<img src="https://nothingcpd.github.io/img/cpd.png">
+		</div>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Nothing-Cpd</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">人生亦可燃烧，亦可腐败，我愿燃烧，耗尽所有的光芒</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/nothingcpd" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2728437514?from=feed&loc=avatar" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="linkedin" target="_blank" href="http://cn.linkedin.com/pub/%E5%93%81%E6%AE%BF-%E9%99%88/aa/943/40b" title="linkedin">linkedin</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud">
+						<a href="/tags/android/" style="font-size: 10.00px;">android</a><a href="/tags/google/" style="font-size: 10.00px;">google</a><a href="/tags/hexo/" style="font-size: 20.00px;">hexo</a><a href="/tags/java/" style="font-size: 10.00px;">java</a><a href="/tags/leetcode/" style="font-size: 15.00px;">leetcode</a><a href="/tags/markdown/" style="font-size: 10.00px;">markdown</a><a href="/tags/个人/" style="font-size: 10.00px;">个人</a><a href="/tags/主题/" style="font-size: 10.00px;">主题</a><a href="/tags/家乡/" style="font-size: 10.00px;">家乡</a><a href="/tags/开源/" style="font-size: 10.00px;">开源</a><a href="/tags/心情/" style="font-size: 10.00px;">心情</a><a href="/tags/教程/" style="font-size: 15.00px;">教程</a><a href="/tags/转载/" style="font-size: 10.00px;">转载</a><a href="/tags/随笔/" style="font-size: 10.00px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					个人简介：.....................................姓名：陈品殿..................................艺名：nothingcpd..........................年龄：年方25，存活于帝都..............工作单位：游走于北京邮电大学网络与交换国家重点实验室.................... 主营业务：目前主营SDN，python与java................................................爱好：打球，旅游，聊天，美食，天马行空............................................个人鉴定：crazy man
+				</section>
+				
+			</div>
+			
+		</div>
+
+	</header>
+		
+</div>
+
+
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay"></div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="https://nothingcpd.github.io/img/cpd.png">
+			</div>
+
+			<hgroup>
+			  <h1 class="header-author"><a href="/">Nothing-Cpd</a></h1>
+			</hgroup>
+			
+			<p class="header-subtitle">人生亦可燃烧，亦可腐败，我愿燃烧，耗尽所有的光芒</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/nothingcpd" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2728437514?from=feed&loc=avatar" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="linkedin" target="_blank" href="http://cn.linkedin.com/pub/%E5%93%81%E6%AE%BF-%E9%99%88/aa/943/40b" title="linkedin">linkedin</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <article id="post-post-8" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/10/post-8/" class="article-date">
+  	<time datetime="2015-01-10T14:03:42.000Z" itemprop="datePublished">1月 10 2015</time>
+</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/google/">google</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Google-Java编程规范
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://nothingcpd.github.io/img/google1.png" alt="google"></p>
+<h1 id="目录">目录</h1>
+<ol>
+<li>前言 </li>
+<li>源文件基础</li>
+<li>源文件结构 </li>
+<li>格式 </li>
+<li>命名约定 </li>
+<li>编程实践 </li>
+<li>Javadoc </li>
+<li>后记<a id="more"></a>
+
+</li>
+</ol>
+<h1 id="前言">前言</h1>
+<p>这份文档是Google Java编程风格规范的完整定义。当且仅当一个Java源文件符合此文档中的规则， 我们才认为它符合Google的Java编程风格。</p>
+<p>与其它的编程风格指南一样，这里所讨论的不仅仅是编码格式美不美观的问题， 同时也讨论一些约定及编码标准。然而，这份文档主要侧重于我们所普遍遵循的规则， 对于那些不是明确强制要求的，我们尽量避免提供意见。</p>
+<h2 id="1-1_术语说明">1.1 术语说明</h2>
+<p>   在本文档中，除非另有说明：</p>
+<p>术语class可表示一个普通类，枚举类，接口或是annotation类型(@interface)<br>术语comment只用来指代实现的注释(implementation comments)，我们不使用“documentation comments”一词，而是用Javadoc。<br>其他的术语说明会偶尔在后面的文档出现。</p>
+<h2 id="1-2_指南说明">1.2 指南说明</h2>
+<p>本文档中的示例代码并不作为规范。也就是说，虽然示例代码是遵循Google编程风格，但并不意味着这是展现这些代码的唯一方式。 示例中的格式选择不应该被强制定为规则。</p>
+<h1 id="源文件基础">源文件基础</h1>
+<h2 id="2-1_文件名">2.1 文件名</h2>
+<p>源文件以其最顶层的类名来命名，大小写敏感，文件扩展名为.java。</p>
+<h2 id="2-2_文件编码：UTF-8">2.2 文件编码：UTF-8</h2>
+<p>源文件编码格式为UTF-8。</p>
+<h2 id="2-3_特殊字符">2.3 特殊字符</h2>
+<p>2.3.1 空白字符<br>除了行结束符序列，ASCII水平空格字符(0x20，即空格)是源文件中唯一允许出现的空白字符，这意味着：</p>
+<ul>
+<li>所有其它字符串中的空白字符都要进行转义。 </li>
+<li>制表符不用于缩进。</li>
+</ul>
+<p>2.3.2 特殊转义序列<br>对于具有特殊转义序列的任何字符(\b, \t, \n, \f, \r, \“, \‘及)，我们使用它的转义序列，而不是相应的八进制(比如\012)或Unicode(比如\u000a)转义。</p>
+<p>2.3.3 非ASCII字符<br>对于剩余的非ASCII字符，是使用实际的Unicode字符(比如∞)，还是使用等价的Unicode转义符(比如\u221e)，取决于哪个能让代码更易于阅读和理解。</p>
+<blockquote>
+<p>  Tip: 在使用Unicode转义符或是一些实际的Unicode字符时，建议做些注释给出解释，这有助于别人阅读和理解。</p>
+</blockquote>
+<p>例如：</p>
+<pre><code><span class="built_in">String</span> unitAbbrev = <span class="string">"μs"</span>;                                 | 赞，即使没有注释也非常清晰
+<span class="built_in">String</span> unitAbbrev = <span class="string">"\u03bcs"</span>; <span class="comment">// "μs"                    | 允许，但没有理由要这样做</span>
+<span class="built_in">String</span> unitAbbrev = <span class="string">"\u03bcs"</span>; <span class="comment">// Greek letter mu, "s"    | 允许，但这样做显得笨拙还容易出错</span>
+<span class="built_in">String</span> unitAbbrev = <span class="string">"\u03bcs"</span>;                            | 很糟，读者根本看不出这是什么
+<span class="keyword">return</span> <span class="string">'\ufeff'</span> + content; <span class="comment">// byte order mark|Good，对于非打印字符，使用转义，并在必要时写上注释</span>
+</code></pre><blockquote>
+<p>  Tip: 永远不要由于害怕某些程序可能无法正确处理非ASCII字符而让你的代码可读性变差。当程序无法正确处理非ASCII字符时，它自然无法正确运行， 你就会去fix这些问题的了。(言下之意就是大胆去用非ASCII字符，如果真的有需要的话)</p>
+</blockquote>
+<h1 id="源文件结构">源文件结构</h1>
+<p>一个源文件包含(按顺序地)：</p>
+<p>许可证或版权信息(如有需要)<br>package语句<br>import语句<br>一个顶级类(只有一个)<br>以上每个部分之间用一个空行隔开。</p>
+<h2 id="3-1_许可证或版权信息">3.1 许可证或版权信息</h2>
+<p>如果一个文件包含许可证或版权信息，那么它应当被放在文件最前面。</p>
+<h2 id="3-2_package语句">3.2 package语句</h2>
+<p>package语句不换行，列限制(4.4节)并不适用于package语句。(即package语句写在一行里)</p>
+<h2 id="3-3_import语句">3.3 import语句</h2>
+<p>3.3.1 import不要使用通配符<br>即，不要出现类似这样的import语句：import java.util.*;</p>
+<p>3.3.2 不要换行<br>import语句不换行，列限制(4.4节)并不适用于import语句。(每个import语句独立成行)</p>
+<p>3.3.3 顺序和间距<br>import语句可分为以下几组，按照这个顺序，每组由一个空行分隔：</p>
+<p>所有的静态导入独立成组<br>com.google imports(仅当这个源文件是在com.google包下)<br>第三方的包。每个顶级包为一组，字典序。例如：android, com, junit, org, sun<br>java imports<br>javax imports<br>组内不空行，按字典序排列。</p>
+<h2 id="3-4_类声明">3.4 类声明</h2>
+<p>3.4.1 只有一个顶级类声明<br>每个顶级类都在一个与它同名的源文件中(当然，还包含.java后缀)。</p>
+<blockquote>
+<p>   例外：package-info.java，该文件中可没有package-info类。</p>
+</blockquote>
+<p>3.4.2 类成员顺序<br>类的成员顺序对易学性有很大的影响，但这也不存在唯一的通用法则。不同的类对成员的排序可能是不同的。 最重要的一点，每个类应该以某种逻辑去排序它的成员，维护者应该要能解释这种排序逻辑。比如， 新的方法不能总是习惯性地添加到类的结尾，因为这样就是按时间顺序而非某种逻辑来排序的。</p>
+<p>3.4.2.1 重载：永不分离<br>当一个类有多个构造函数，或是多个同名方法，这些函数/方法应该按顺序出现在一起，中间不要放进其它函数/方法。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/01/10/post-7/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">西码头陈氏家祠修缮碑记</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="post-8" data-title="Google-Java编程规范" data-url="http://chenpindian.com/2015/01/10/post-8/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Nothing-Cpd
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+  <script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+  </div>
+</body>
+</html>
