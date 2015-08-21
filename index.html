@@ -6,17 +6,26 @@
   <title>陈品殿的博客</title>
 
 <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=1220243215" type="text/javascript" charset="utf-8">
-  function login(o) {
-    alert(o.screen_name)
-  }
- 
-  function logout() {
-    alert('logout');
-  }
+</script>
+<script>
+WB2.anyWhere(function (W) {
+    W.widget.connectButton({
+        id: "wb_connect_btn",
+        type: '3,2',
+        callback: {
+            login: function (o) { //登录后的回调函数
+                alert("login: " + o.screen_name)
+            },
+            logout: function () { //退出后的回调函数
+                alert('logout');
+            }
+        }
+    });
+});
 </script>
 </head>
 <body>
   <h1>我的第一个标题</h1>
-  <wb:login-button type="3,2" onlogin="login" onlogout="logout" ></wb:login-button>
+  <div id="wb_connect_btn" ></div>
 </body>
 </html>
