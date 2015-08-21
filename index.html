@@ -5,24 +5,18 @@
   <meta property="wb:webmaster" content="2ff65170685cd248"/>
   <title>陈品殿的博客</title>
 
-<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=1220243215" type="text/javascript" charset="utf-8"></script>
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=1220243215" type="text/javascript" charset="utf-8">
+  function login(o) {
+    alert(o.screen_name)
+  }
+ 
+  function logout() {
+    alert('logout');
+  }
+</script>
 </head>
 <body>
   <h1>我的第一个标题</h1>
-  <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=1220243215" type="text/javascript" charset="utf-8">
-  WB2.anyWhere(function(W){
-    W.widget.connectButton({
-        id: "wb_connect_btn",	
-        type:"3,2",
-        callback : {
-            login:function(o){
-                alert("cpd");			
-            },	
-            logout:function(){
-            }
-        }
-    });
-});
-</script>
+  <wb:login-button type="3,2" onlogin="login" onlogout="logout" ></wb:login-button>
 </body>
 </html>
