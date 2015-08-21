@@ -5,15 +5,21 @@
   <meta property="wb:webmaster" content="2ff65170685cd248"/>
   <title>陈品殿的博客</title>
 
-<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=1220243215&debug=true" type="text/javascript" charset="utf-8">
-  WB2.login(function() {
-    //callback function
-	alert("chenpidnian");
-});
-</script>
-
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=1220243215" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
-  <div id="wb_connect_btn" ></div>
+  WB2.anyWhere(function(W){
+    W.widget.connectButton({
+        id: "wb_connect_btn",	
+        type:"3,2",
+        callback : {
+            login:function(o){
+                alert("cpd");			
+            },	
+            logout:function(){
+            }
+        }
+    });
+});
 </body>
 </html>
