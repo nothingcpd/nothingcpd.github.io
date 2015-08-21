@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:wb="http://open.weibo.com/wb">
 <head>
   <meta charset="utf-8">
   <meta property="wb:webmaster" content="2ff65170685cd248"/>
@@ -27,7 +27,23 @@
   
 
   <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
-  
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=1220243215&debug=true" type="text/javascript" charset="utf-8">
+  WB2.anyWhere(function (W) {
+      W.widget.connectButton({
+          id: "wb_connect_btn",
+	  type: '3,2',
+	  callback: {
+              login: function (o) {
+	          alert("login: " + o.screen_name)
+	      },
+	      logout: function () { 
+                  alert('logout');
+	      }
+	  }
+      });
+   });
+</script>
+
 <script type="text/javascript">
 var _hmt = _hmt || [];
 (function() {
@@ -40,6 +56,7 @@ var _hmt = _hmt || [];
 
 </head>
 <body>
+  <div id="wb_connect_btn" ></div>
   <div id="container">
     <div class="left-col">
     <div class="overlay"></div>
