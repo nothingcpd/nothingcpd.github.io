@@ -6,7 +6,7 @@
   <title>陈品殿的博客</title>
 
 
-<script src="https://api.weibo.com/oauth2/authorize?client_id=1220243215&response_type=code&redirect_uri=www.chenpindian.com" type="text/javascript">
+<script src="https://api.weibo.com/oauth2/authorize?client_id=1220243215&response_type=code&redirect_uri=www.chenpindian.com" type="text/javascript" charset="utf-8">
 	
 </script>
 
@@ -20,9 +20,7 @@ WB2.anyWhere(function(W){
         type:"4,2",
         callback : {
             login:function(o){	//登录后的回调函数
-            	window.open("https://api.weibo.com/oauth2/authorize?client_id=1220243215&redirect_uri=http://www.chenpindian.com/response&response_type=code");
 				alert("wo de tian a!");
-				window.open("https://api.weibo.com/oauth2/authorize?client_id=1220243215&redirect_uri=http://www.chenpindian.com/response&response_type=code");
             },	
             logout:function(){	//退出后的回调函数
             }
