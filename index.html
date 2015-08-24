@@ -43,7 +43,8 @@
             W.parseCMD("/users/show.json",function(ret,status){
                 if(status){
                     console.log(ret);
-					document.getElementById("cpd").src = ret.profile_image_url;
+					document.getElementById("image").src = ret.profile_image_url;
+					document.getElementById("name").innerHTML = ret.screen_name;
                 }else{
                     console.log("/users/show.json error");
                 }
@@ -66,20 +67,6 @@ WB2.anyWhere(function(W){
 				alert("tian a");
 				var access_token = getcookie('weibojs_1220243215');
 				getWbUserData(access_token);
-				//W.parseCMD('oauth2/authorize.json', function(oResult, bStatus) {
-				//		if(bStatus) {
-				//			//to do something...
-				//			alert(oResult);
-				//		}
-				//		alert(bStatus);
-				//		}, {
-				//			client_id : '1220243215',
-				//			redirect_uri : 'http://www.chenpindian.com/index.html'
-				//		}, {
-				//			method : 'post'
-				//		});	
-					
-					//}
 			},	
             logout:function(){	//退出后的回调函数
             }
@@ -93,6 +80,7 @@ WB2.anyWhere(function(W){
   <h1>我的第一个标题</h1>
   <a href="https://api.weibo.com/oauth2/authorize?client_id=1220243215&response_type=code&redirect_uri=http://www.chenpindian.com/index.html">授权</a>
   <div id="wb_connect_btn" ></div>
-  <img id="cpd" src="" width="50" height="50"></img>
+  <p id="name" >cpd</p>
+  <img id="image" src="" width="50" height="50"></img>
 </body>
 </html>
