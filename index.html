@@ -84,8 +84,14 @@ WB2.anyWhere(function(W){
     QC.Login({
        btnId:"qqLoginBtn"    //插入按钮的节点id
 });
-	if(QC.Login.check()){
-	var paras = {};
+
+
+QC.Login({
+       //btnId：插入按钮的节点id，必选
+       btnId:"qqLoginBtn",    
+   }, function(reqData, opts){//登录成功
+       //根据返回数据，更换按钮显示状态方法
+       var paras = {};
 
 //用JS SDK调用OpenAPI
 QC.api("get_user_info", paras)
@@ -104,7 +110,11 @@ QC.api("get_user_info", paras)
 		//完成请求回调
 		alert("获取用户信息完成！");
 	});
-	}
+   }, function(opts){//注销成功
+         alert('QQ登录 注销成功');
+   }
+);
+
 </script>
 <script type="text/javascript"
 src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" charset="utf-8" data-callback="true"></script>
