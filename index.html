@@ -15,8 +15,8 @@
 			if(temp[0] == objname) {
 				alert(temp[1]);
 				//return unescape(temp[1].split("&")[0].split("=")[1]);
-				var value = temp[1].split("&");
-				var token = value[0].split("=");
+				var value = temp[1].split("%26");
+				var token = value[0].split("%3D");
 				return token[1];
 			}
 		}
