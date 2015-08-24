@@ -66,6 +66,7 @@ WB2.anyWhere(function(W){
         type:"4,2",
         callback : {
             login:function(o){	//登录后的回调函数	
+				alert("tian a");
 				var access_token = getcookie('weibojs_1220243215');
 				getWbUserData(access_token);
 				//W.parseCMD('oauth2/authorize.json', function(oResult, bStatus) {
