@@ -8,6 +8,7 @@
 
   
 <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=1220243215&debug=true" type="text/javascript" charset="utf-8"></script>
+
 <script>
 	function getcookie(objname){//获取指定名称的cookie的值
 		var arrstr = document.cookie.split("; ");
@@ -76,6 +77,16 @@ WB2.anyWhere(function(W){
 
 });
 </script>
+
+
+<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101241281" data-redirecturi="http://www.chenpindian.com/index.html" charset="utf-8"></script>
+<script type="text/javascript">
+    QC.Login({
+       btnId:"qqLoginBtn"    //插入按钮的节点id
+});
+</script>
+<script type="text/javascript"
+src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" charset="utf-8" data-callback="true"></script>
 </head>
 <body>
   <h1>我的第一个标题</h1>
@@ -83,5 +94,7 @@ WB2.anyWhere(function(W){
   <div id="wb_connect_btn" ></div>
   <p id="name" >cpd</p>
   <img id="image" src="" width="50" height="50"></img>
+  <span id="qqLoginBtn"></span>
+
 </body>
 </html>
