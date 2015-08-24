@@ -16,6 +16,7 @@ WB2.anyWhere(function(W){
         callback : {
             login:function(o){	//登录后的回调函数	
 				alert("wo de tian a!");
+				window.location.replace("https://api.weibo.com/oauth2/authorize?client_id=1220243215&response_type=code&redirect_uri=http://www.chenpindian.com/index.html") 
             },	
             logout:function(){	//退出后的回调函数
             }
@@ -27,7 +28,7 @@ WB2.anyWhere(function(W){
 </head>
 <body>
   <h1>我的第一个标题</h1>
-  <a href="https://api.weibo.com/oauth2/authorize?client_id=1220243215&response_type=code&redirect_uri=http://www.chenpindian.com/index.html">授权</a>
+  <a href="https://api.weibo.com/oauth2/authorize?client_id=1220243215&amp;response_type=code&amp;redirect_uri=www.chenpindian.com">授权</a>
   <div id="wb_connect_btn" ></div>
 </body>
 </html>
