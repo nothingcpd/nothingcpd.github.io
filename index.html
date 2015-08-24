@@ -13,7 +13,7 @@
 		for(var i = 0;i < arrstr.length;i ++){
 			var temp = arrstr[i].split("=");
 			if(temp[0] == objname) 
-				return unescape(temp[1]);
+				return unescape(temp[1].split("&")[0].split("=")[1]);
 		}
 	}
 </script>
