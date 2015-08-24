@@ -15,18 +15,22 @@ WB2.anyWhere(function(W){
         type:"4,2",
         callback : {
             login:function(o){	//登录后的回调函数	
-				W.parseCMD('oauth2/authorize.json', function(oResult, bStatus) {
-						if(bStatus) {
-							//to do something...
-							alert(oResult);
-						}
-						alert(bStatus);
-						}, {
-							client_id : '1220243215',
-							redirect_uri : 'http://www.chenpindian.com/index.html'
-						}, {
-							method : 'post'
-						});	
+				//W.parseCMD('oauth2/authorize.json', function(oResult, bStatus) {
+				//		if(bStatus) {
+				//			//to do something...
+				//			alert(oResult);
+				//		}
+				//		alert(bStatus);
+				//		}, {
+				//			client_id : '1220243215',
+				//			redirect_uri : 'http://www.chenpindian.com/index.html'
+				//		}, {
+				//			method : 'post'
+				//		});	
+					var getAccessToken = function(){
+					var cookie = $.fn.cookie("weibojs_{your_appkey}");
+					alert(cookie.split("&")[0].split("=")[1]);
+					}
 				},	
             logout:function(){	//退出后的回调函数
             }
