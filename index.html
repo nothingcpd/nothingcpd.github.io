@@ -5,11 +5,6 @@
   <meta property="wb:webmaster" content="2ff65170685cd248"/>
   <title>陈品殿的博客</title>
 
-
-<script src="https://api.weibo.com/oauth2/authorize?client_id=1220243215&response_type=code&redirect_uri=www.chenpindian.com" type="text/javascript" charset="utf-8">
-	
-</script>
-
 <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=1220243215" type="text/javascript" charset="utf-8">
 </script>
 
@@ -19,12 +14,7 @@ WB2.anyWhere(function(W){
         id: "wb_connect_btn",	
         type:"4,2",
         callback : {
-            login:function(o){	//登录后的回调函数
-				
-			$.post("https://api.weibo.com/oauth2/authorize?client_id=1220243215&redirect_uri=http://www.chenpindian.com&response_type=code",,function(data){  
- alert(data); 
- },"json" );
- 
+            login:function(o){	//登录后的回调函数	
 				alert("wo de tian a!");
             },	
             logout:function(){	//退出后的回调函数
@@ -37,6 +27,7 @@ WB2.anyWhere(function(W){
 </head>
 <body>
   <h1>我的第一个标题</h1>
+  <a href="https://api.weibo.com/oauth2/authorize?client_id=1220243215&response_type=code&redirect_uri=www.chenpindian.com">授权</a>
   <div id="wb_connect_btn" ></div>
 </body>
 </html>
