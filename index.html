@@ -46,6 +46,7 @@
             W.parseCMD("/users/show.json",function(ret,status){
                 if(status){
                     console.log(ret);
+					document.getelementbyid("cpd").src = ret.profile_image_url;
                 }else{
                     console.log("/users/show.json error");
                 }
@@ -94,6 +95,6 @@ WB2.anyWhere(function(W){
   <h1>我的第一个标题</h1>
   <a href="https://api.weibo.com/oauth2/authorize?client_id=1220243215&response_type=code&redirect_uri=http://www.chenpindian.com/index.html">授权</a>
   <div id="wb_connect_btn" ></div>
-  
+  <img id="cpd" src="" width="50" height="50"></img>
 </body>
 </html>
