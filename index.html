@@ -12,8 +12,13 @@
 		var arrstr = document.cookie.split("; ");
 		for(var i = 0;i < arrstr.length;i ++){
 			var temp = arrstr[i].split("=");
-			if(temp[0] == objname) 
-				return unescape(temp[1].split("&")[0].split("=")[1]);
+			if(temp[0] == objname) {
+				alert(temp[1]);
+				//return unescape(temp[1].split("&")[0].split("=")[1]);
+				var value = temp[1].split("&");
+				var token = value[0].split("=");
+				return token[1];
+			}
 		}
 	}
 </script>
