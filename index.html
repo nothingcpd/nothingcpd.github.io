@@ -46,7 +46,7 @@
             W.parseCMD("/users/show.json",function(ret,status){
                 if(status){
                     console.log(ret);
-					document.getelementbyid("cpd").src = ret.profile_image_url;
+					document.getElementById("cpd").src = ret.profile_image_url;
                 }else{
                     console.log("/users/show.json error");
                 }
