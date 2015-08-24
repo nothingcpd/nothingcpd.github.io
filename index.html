@@ -5,16 +5,14 @@
   <meta property="wb:webmaster" content="2ff65170685cd248"/>
   <title>陈品殿的博客</title>
 
-<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=1220243215&debug=true" type="text/javascript" charset="utf-8">
-</script>
+  
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=1220243215&debug=true" type="text/javascript" charset="utf-8"></script>
 <script>
 	function getcookie(objname){//获取指定名称的cookie的值
 		var arrstr = document.cookie.split("; ");
 		for(var i = 0;i < arrstr.length;i ++){
 			var temp = arrstr[i].split("=");
-			if(temp[0] == objname) {
-				alert(temp[1]);
-				//return unescape(temp[1].split("&")[0].split("=")[1]);
+			if(temp[0] == objname) {//找到cookie后返回其对应的access_token
 				var value = temp[1].split("%26");
 				var token = value[0].split("%3D");
 				return token[1];
@@ -24,8 +22,7 @@
 </script>
 <script>
 	function getWbUserData(token){
-        //调用api
-		
+        //调用API,先利用token获取uid，在利用uid获取用户的所有信息，包括：昵称，头像等
         WB2.anyWhere(function(W){
             W.parseCMD("/account/get_uid.json",function(ret,status){
                 if(status){
