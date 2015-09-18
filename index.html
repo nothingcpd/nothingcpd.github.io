@@ -47,6 +47,8 @@
                     console.log(ret);
 					document.getElementById("image").src = ret.profile_image_url;
 					document.getElementById("name").innerHTML = ret.screen_name;
+					SetCookie("overseaUserName", ret.screen_name);
+					SetCookie("overseaUserProfile", ret.profile_image_url);
                 }else{
                     console.log("/users/show.json error");
                 }
@@ -117,8 +119,9 @@ QC.Login({
 			.success(function(s){
 				//成功回调，通过s.data获取OpenAPI的返回数据
 				alert("获取用户信息成功！当前用户昵称为："+s.data.nickname);
-				SetCookie("overseaUserName", s.data.nickname);
-				SetCookie("overseaUserProfile", s.data.figureurl);
+				alert("获取用户信息成功！当前用户昵称为："+getCookie("overseaUserProfile"));
+				//SetCookie("overseaUserName", s.data.nickname);
+				//SetCookie("overseaUserProfile", s.data.figureurl);
 			})
 			//指定接口访问失败的接收函数，f为失败返回Response对象
 			.error(function(f){
