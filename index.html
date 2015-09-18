@@ -77,8 +77,30 @@ WB2.anyWhere(function(W){
 
 });
 </script>
+<script>
+function SetCookie(name,value)
+{
+var Days = 30; 
+var exp = new Date();
+exp.setTime(exp.getTime() + Days*24*60*60*1000);
+document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
+}
 
-
+function delCookie(name)
+{
+var exp = new Date();
+exp.setTime(exp.getTime() - 1);
+var cval=getCookie(name);
+if(cval!=null) document.cookie= name + "="+cval+";expires="+exp.toGMTString();
+}
+function getCookie(name)
+{
+var arr = document.cookie.match(new RegExp("(^| )"+name+"=([^;]*)(;|$)"));
+if(arr != null)
+return unescape(arr[2]);
+return null;
+}
+</script>
 <script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101241281" data-redirecturi="http://www.chenpindian.com" charset="utf-8"></script>
 <script type="text/javascript">
 
@@ -95,6 +117,8 @@ QC.Login({
 			.success(function(s){
 				//成功回调，通过s.data获取OpenAPI的返回数据
 				alert("获取用户信息成功！当前用户昵称为："+s.data.nickname);
+				SetCookie("overseaUserName", s.data.nickname);
+				SetCookie("overseaUserProfile", s.data.figureurl);
 			})
 			//指定接口访问失败的接收函数，f为失败返回Response对象
 			.error(function(f){
